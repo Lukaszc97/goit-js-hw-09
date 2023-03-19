@@ -18,6 +18,7 @@
     "url": "https://github.com/Lukaszc97/goit-js-hw-09.git/"
   },
   "dependencies": {
+    "core-js": "^2.5.7",
     "flatpickr": "^4.6.13",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6"
