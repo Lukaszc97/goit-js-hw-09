@@ -14,6 +14,21 @@ flatpickr(dateTimePicker, {
   enableTime: true,
   minDate: 'today',
   dateFormat: 'Y-m-d H:i',
+  onClose: function(selectedDates) {
+    const selectedDate = selectedDates[0];
+
+    if (!selectedDate) {
+      return;
+    }
+
+    if (selectedDate.getTime() <= Date.now()) {
+      window.alert('Please choose a date in the future.');
+      startButton.disabled = true;
+      return;
+    }
+
+    startButton.disabled = false;
+  }
 });
 
 startButton.addEventListener('click', () => {
@@ -21,11 +36,6 @@ startButton.addEventListener('click', () => {
 
   if (!selectedDate) {
     window.alert('Please choose a date first.');
-    return;
-  }
-
-  if (selectedDate.getTime() <= Date.now()) {
-    window.alert('Please choose a date in the future.');
     return;
   }
 
